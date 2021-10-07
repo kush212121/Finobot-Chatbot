@@ -1,0 +1,398 @@
+:root {
+  --primary: #4274fb;
+}
+
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css");
+
+.toggle-finnobot {
+  background: var(--primary);
+  border: none;
+  padding: 1rem;
+  border-radius: 50%;
+  height: 100px;
+  width: 100px;
+  position: fixed;
+  bottom: 3vh;
+  right: 3vh;
+  transition: 0.3s;
+  transform: scale(1);
+  transition: 0.5;
+  z-index: 99999;
+}
+
+.toggle-finnobot-active {
+  transform: scale(0);
+}
+
+.finnobot {
+  background: var(--primary);
+  width: 30vw;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  transition: all ease-out 0.3s;
+  transform: scale(0) translate(500px, 500px);
+  border-radius: 2rem;
+  z-index: 9999;
+}
+
+.finnobot-active {
+  transition: 0.4s;
+  transform: scale(1);
+  bottom: 5vh;
+  right: 5vh;
+}
+
+.message {
+  position: relative;
+}
+
+.message img {
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+}
+
+.message .message__time {
+  color: white;
+  position: absolute;
+  bottom: 0;
+  transform: translateY(105%);
+  font-size: 0.8rem;
+}
+.message.sent .message__time {
+  right: 5px;
+}
+.message.received .message__time {
+  left: 5px;
+}
+
+.chatroom__main {
+  overflow-y: scroll;
+  height: 60vh;
+  background: #282c34;
+
+  /* background-repeat: repeat; */
+  background-size: cover;
+  background-position: center center;
+  position: relative;
+}
+
+.chatroom__welcome {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+.chatroom__welcome > img {
+  height: 100px;
+  width: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.chatroom__drop {
+  background: white;
+  width: 50px;
+  height: 50px;
+  display: grid;
+  place-items: center;
+  color: var(--primary);
+  font-size: 1.5rem;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.chatroom__form {
+  width: 100%;
+  height: 50px;
+  background: #192531;
+  display: flex;
+  align-items: center;
+  /* border: 1px solid rgb(172, 172, 172); */
+  box-shadow: 1px 1px 40px 1px #192531;
+  margin: 0;
+  position: relative;
+}
+
+.chatroom__emogiTray {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-gap: 0.5rem;
+  background: var(--primary);
+  position: absolute;
+  top: -0.5rem;
+  right: 5%;
+  transform: translate(0%, -100%);
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+}
+
+.arrow-down {
+  width: 0;
+  height: 0;
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  border-top: 15px solid var(--primary);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  transform: translate(450%, 100%);
+}
+
+.chatroom__emogiTray span {
+  display: grid;
+  place-items: center;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.chatroom h1 {
+  text-align: center;
+}
+
+.chatroom__form input {
+  width: 100%;
+  height: 60%;
+  border: none;
+  outline: none;
+  font-size: 1.25rem;
+  color: white;
+  background: transparent;
+  padding: 0 2rem;
+}
+
+.chatroom__form button {
+  height: 100%;
+  padding: 0 2rem;
+  background: var(--primary);
+  border: none;
+  color: white;
+}
+
+.message {
+  display: flex;
+  align-items: center;
+  padding: 1rem 1rem;
+}
+
+.message img {
+  object-fit: cover;
+}
+
+.message__text {
+  padding: 1rem 2rem;
+  box-shadow: 1px 1px 30px 1px rgba(0, 0, 0, 0.459);
+  border-radius: 30px;
+  max-width: 50%;
+  position: relative;
+  background: white;
+  margin: 1rem;
+  color: black;
+  word-wrap: break-word;
+}
+
+.sent {
+  flex-direction: row-reverse;
+}
+
+.sent p {
+  color: white;
+  /* background: #0746a6; */
+  background: var(--primary);
+  align-self: flex-end;
+  margin-right: 10px;
+  width: max-content;
+}
+
+.sent p::after {
+  content: " ";
+  background: red;
+  height: 10px;
+  width: 10px;
+}
+
+.received p {
+  margin-left: 10px;
+  background: #f8f8f8;
+  color: black;
+  width: max-content;
+}
+
+.chatroom__agentinfo {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+}
+
+.chatroom__agentinfo .fa {
+  color: red;
+  margin: 0 0.25rem;
+}
+
+.chatroom__agentinfo > div {
+  display: flex;
+  align-items: center;
+}
+
+.agent__avatar {
+  height: 3vh;
+  width: 3vh;
+  object-fit: cover;
+  border-radius: 50%;
+  margin: 0 0.25rem;
+}
+
+.chatroom__form .fa {
+  margin: 0 0.5rem;
+  cursor: pointer;
+  background-size: 2px;
+}
+
+.chatroom__form .fa-microphone {
+  margin-right: 1rem;
+}
+
+.chatroom__input {
+  overflow: hidden;
+}
+
+.mic-enabled {
+  animation: 1s micAnim infinite;
+  transform: scale(1.3);
+}
+
+@keyframes micAnim {
+  0% {
+    background: linear-gradient(white, rgb(2, 204, 2) 20%);
+    color: transparent;
+    background-clip: text;
+  }
+  40% {
+    background: linear-gradient(white, rgb(2, 204, 2) 100%);
+    color: transparent;
+    background-clip: text;
+  }
+
+  100% {
+    background: linear-gradient(white, rgb(2, 204, 2) 40%);
+    color: transparent;
+    background-clip: text;
+  }
+}
+
+.multoptions {
+  margin: 0 3rem;
+  margin-bottom: 2rem;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.multoptions__option {
+  background: white;
+  color: black;
+  padding: 1rem 2rem;
+  text-align: center;
+  border-bottom: 1px solid gray;
+}
+
+.multoptions__option:hover {
+  opacity: 0.9;
+  cursor: pointer;
+}
+
+.finnobot__init {
+  padding: 1rem;
+  position: relative;
+  height: 50vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.finnobot__init .fa-times {
+  position: absolute;
+  top: 1rem;
+  right: 2rem;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.g-login {
+  display: flex;
+  align-items: center;
+  height: 3rem;
+  padding: 0.5rem 2rem;
+  justify-content: space-evenly;
+  background: white;
+  border: none;
+  outline: none;
+  color: dodgerblue;
+  font-size: 1rem;
+  font-weight: 700;
+  border-radius: 2rem;
+}
+.g-login i {
+  margin-right: 1rem;
+  font-size: 1.5rem;
+}
+
+.g-login img {
+  height: 100%;
+  margin-right: 1rem;
+}
+
+.tip-box .fa {
+  color: yellow;
+  margin-right: 1rem;
+  transform: scale(2);
+}
+
+button {
+  cursor: pointer;
+}
+
+.finn__logout {
+  position: absolute;
+  top: 1.75rem;
+  left: 1rem;
+  cursor: pointer;
+}
+
+.finn__logout i {
+  font-size: 2rem;
+  transform: rotate(180deg);
+}
+
+.chrome-comp {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.chrome-comp img {
+  margin: 0 1rem;
+}
+
+.text-primary {
+  color: var(--primary);
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 800px) {
+  .finnobot {
+    width: 90%;
+  }
+  .finnobot-active {
+    right: 50%;
+    transform: translateX(50%);
+  }
+  .chatroom__main {
+    height: 50vh;
+  }
+}
